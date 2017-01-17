@@ -1,0 +1,3 @@
+This work, which I completed offline and which was written solely by myself, is meant to be used as a tool to illustrate 
+the depth and breadth of my CS knowledge to potential employers. It is not to be used by students as a cheat sheet. 
+My permission is not granted in using this code for purposes of plagerism.

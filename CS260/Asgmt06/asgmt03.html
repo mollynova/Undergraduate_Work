@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/asgmt.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- template parameters -->
+<!-- InstanceParam name="labVersion" type="text" value="3" -->
+<style type="text/css">
+<!--
+.code {
+	font-family: Consolas, "Courier New", Courier, monospace;
+	font-size: 14px;
+}
+.header {
+	font-family: Cambria, "Times New Roman", Roman, serif;
+	font-size: 20px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.title {
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: underline;
+	font-family: Cambria, "Times New Roman", Roman, serif;
+}
+.header1 {	font-family: Cambria, Georgia, "Times New Roman", Times, serif;
+	font-size: 20px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+-->
+</style>
+</head>
+<body>
+<h1 class="title">CS260 Assignment 3</h1>
+<h2 class="header">Instructions</h2>
+<!-- InstanceBeginEditable name="description" -->
+<p>You have decided to write a C++ program using data abstraction to help you keep track of the stock market. You want a program that will quickly allow your users to find out very quickly about a stock or mutual fund.</p>
+<p>The information about each stock or mutual fund that you want to keep track of is:</p>
+<ul>
+  <li>ticker symbol (e.g., IBM for International Business Machines) </li>
+  <li>stock or fund name  (e.g. International Business Machines)</li>
+  <li>share price   (e.g. 25.73)<br />
+  (this should be stored as an<span class="code"> int</span>, not as a<span class="code"> float </span>or a<span class="code"> double</span>) </li>
+  <li>Date of that share price (e.g. May, 23, 1967)</li>
+</ul>
+<p>You will implement this as a hash table. You will use <span style="font-style: italic">linear probing</span> for handling collisions. This means that if you have a collision when inserting a new item, you will search the table <span style="font-style: italic">in order of increasing indices</span> until you find the first empty slot and insert the new item <span style="font-style: italic">there</span>. You will treat the table as a <span style="font-style: italic">circular array</span>, so if your search takes you &ldquo;off the top&rdquo; of the table, you will continue looking for an empty slot at location zero.  </p>
+<p>An attempt to insert a stock into the hash table can fail for one of two reasons:</p>
+<ul>
+  <li>the stock is already in the hash table</li>
+  <li>the hash table is full (i.e. no more empty slots)</li>
+</ul>
+<p>Your code will need to handle this condition by indicating failure when requested to insert a stock which is already there, or for which there is not room.</p>
+<p>It is required that the functions<span class="code"> HashMap::get()</span>,<span class="code"> HashMap::put(</span>), and<span class="code"> HashMap::remove()</span> use hashing and linear probing. <span style="font-style: italic">Do not</span> just do a linear search in the array. Doing so will result in a severe loss of points.</p>
+<p>The function<span class="code"> HashMap::hashStr</span><span class="code">()</span> should be coded to be as fast as possible and to not do unnecessary work as it computes the hash value for a string.</p>
+<p>The share price is required to be stored as an<span class="code"> int </span>(representing the number of <span style="font-style: italic">cents</span>, not dollars). You <span style="font-style: italic">should not </span>use any floating point techniques for either storing or printing out the share price.</p>
+<p>Your code needs to produce output that&rsquo;s identical to the contents of <strong>asgmt03CorrectOutput.txt</strong> (except for minor differences in whitespace). You will need to use I/O manipulators (defined in <span class="code">&lt;iomanip&gt;</span>) in order to format the printed output properly.</p>
+<p>In the printed output,  &ldquo;hc&rdquo; is the label for what your function returned as <span class="code">symbolHash</span>, &ldquo;hi&rdquo; is the label for <span class="code">hashIndex</span>, &ldquo;ui&rdquo; is the label  for <span class="code">usedIndex</span>, and &quot;sl&quot; is the label for the linear probe sequence length. The driver code takes care of printing all of this. Your code just has to return the appropriate data. </p>
+<!-- InstanceEndEditable -->
+<h2 class="header">Code To Start With </h2>
+<p>The code for you to start with is provided as a <!-- #BeginLibraryItem "/Library/Visual Studio.lbi" --> <strong>Microsoft Visual Studio 2013</strong><!-- #EndLibraryItem --> project. To get this project, download and expand <span style="font-weight: bold">asgmt0<strong>3</strong>.zip</span>. The project is set up in <strong>Debug</strong> configuration. <em>Do not</em> change that configuration or any other properties of the project.</p>
+<p>Add code to the definition and implementation files as needed. You can add public and private members, but <span style="font-style: italic">do not remove any of the public members that are already there</span>. Also, <span style="font-style: italic">make no changes </span>to <span style="font-weight: bold">asgmt0<strong>3</strong>driver.cpp</span>.</p>
+<p>There may be additional instructions in comments in the code files, which may contradict the instructions above. In that case, do what those instructions say you should do.</p>
+<h2 class="header">Required Zip File Structure</h2>
+<p>You are required to submit your work as a standard <strong><a href="http://en.wikipedia.org/wiki/Zip_(file_format)" target="_blank">.zip</a></strong> file. No other file format is acceptable.</p>
+<p><em>Do not</em> change the structure of your project folder in any way. Do not move files around, rename them, or add new files. I grade your code using a Python script that depends on files being in predictable places. Nothing in this assignment requires files be moved, renamed, etc.</p>
+<p>Here is the required structure for your zip file:</p>
+<!-- InstanceBeginEditable name="zip file structure" -->
+<table width="694">
+  <tr>
+    <td width="223" align="left" valign="top"><ul>
+      <li>asgmt03
+        <ul>
+          <li>date.cpp</li>
+          <li>date.h</li>
+          <li>hashmap.cpp</li>
+          <li>hashmap.h</li>
+          <li>asgmt03.html</li>
+          <li>asgmt03.vcxproj</li>
+          <li>asgmt03.vcxproj.user</li>
+          <li>asgmt03driver.cpp</li>
+          <li>asgmt03output.txt</li>
+          <li>memoryleakdetect.h</li>
+          <li>stock.cpp</li>
+          <li>stock.h</li>
+        </ul>
+      </li>
+    </ul></td>
+    <td width="26" align="left" valign="top">&nbsp;</td>
+    <td width="429" align="left" valign="top"><p><em>folder</em>&nbsp;<br />
+      &nbsp;<br />
+      &nbsp;<br />
+      &nbsp;<br />
+      &nbsp;<br />
+      <em>not required for submission, but OK if you leave it there</em><br />
+      &nbsp;<br />
+      <br />
+      <br />
+<em>not required for submission, but OK if you leave it there</em>    </p></td>
+  </tr>
+</table>
+<!-- InstanceEndEditable -->
+<p>You can use any Zip utility (e.g. <a href="http://7-zip.org/" target="_blank">7-Zip</a>, which is free, open-source software) to check the structure of your .zip file. 7-Zip has its own file format, file suffix <strong>.7z</strong>. <em>Do not</em> submit your work as a <strong>.7z</strong> file. You are required to submit a <strong>.zip</strong> file.</p>
+<h2 class="header">Strings</h2>
+<p>For storing and printing strings, you should use <a href="http://en.wikipedia.org/wiki/CString" target="_blank">C strings</a>. Your code should <span class="code">#include &lt;cstring&gt;</span> and use the functions defined in that header, such as:</p>
+<ul>
+  <li class="code">int strlen(char *str)<br />
+  // given a string pointer, returns the length of that string,<br />
+  // 
+  which does not include the terminating '\0' character</li>
+  <li class="code">void strcpy(char *dst, char *src)<br />
+    // copies the characters in src to dst,<br />
+    //
+  including the terminating '\0' character</li>
+</ul>
+<p>Using <span class="code">strcpy</span> will cause a compiler warning. You will need to get rid of this warning by adding one of the following as the first line of .cpp files that use <span class="code">strcpy</span>:</p>
+<ul>
+  <li class="code">#define _CRT_SECURE_NO_WARNINGS</li>
+  <li class="code">#pragma warning(disable:4996)</li>
+</ul>
+<h2 class="header">Printed Output</h2>
+<p>Your code&rsquo;s printed output needs to be identical to the contents of the &ldquo;correct output&rdquo; file(s)  provided as part of this assignment. &ldquo;Identical&rdquo; means the Linux utility <span class = "code">diff</span> will find no differences between your code&rsquo;s output and the provided file, when called with flags: <span class="code">-w -B</span>. This means that the sequence of non-whitespace characters in your output has to be identical, but that differences in whitespace will be ignored.</p>
+<p>You are still required to produce output that lines up with itself properly. Columns may need to line up, numbers may need to be right-justified,  etc. You should look at the &ldquo;correct output&rdquo; file(s) to see what you need to do.</p>
+<h2 class="header">Memory Leaks</h2>
+<p>Your code is required to run in<!-- #BeginLibraryItem "/Library/Visual Studio.lbi" --> <strong>Microsoft Visual Studio 2013</strong><!-- #EndLibraryItem --> without memory leaks. The starter code for this project includes support for <!-- #BeginLibraryItem "/Library/memory leak detection.lbi" --><a href="http://msdn.microsoft.com/en-us/library/x98tx3cf.aspx" target="_blank">memory leak detection</a><!-- #EndLibraryItem -->.</p>
+<h2 class="header">Initialization Lists </h2>
+<p>The constructors in your code should use an <a href="http://www.learncpp.com/cpp-tutorial/101-constructor-initialization-lists/" target="_blank">initialization list</a> item for <em>each</em> data member defined by the class. Points will be deducted where this is not done.</p>
+<p>Here is a class definition:</p>
+<blockquote>
+<pre class="code">
+class SomeClass
+{
+    ...
+
+private:
+    int     dataMember1;
+    int     dataMember2;
+}</pre></blockquote>
+<p>Here is a constructor for this class that does not use an initialization list:</p>
+<blockquote>
+<pre class="code">
+SomeClass::SomeClass(int dataMember1, int dataMember2)
+{
+    this->dataMember1 = dataMember1;
+    this->dataMember2 = dataMember2;
+}</pre></blockquote>
+<p>And here is one that does use an initialization list: </p>
+<blockquote>
+<pre class="code">
+SomeClass::SomeClass(int dataMember1, int dataMember2) :
+    dataMember1(dataMember1),
+    dataMember2(dataMember2)
+{
+}</pre></blockquote>
+<p>An initialization list consists of comma-separated items between the <strong class="code">:</strong> and the <strong class="code">{</strong>. Each of these items is of the form:</p>
+<blockquote>
+<pre class="code">
+dataMemberName(value)</pre></blockquote>
+<p>Each item sets the named data member to the value in the parentheses. In the SomeClass constructor above, each of the two initialization list items sets its data member to the constructor argument named inside the parentheses. This is weird-looking syntax, but it is standard usage in the culture of C++. </p>
+<h2 class="header">Grading Your Code</h2>
+<p>I will be running your code in<!-- #BeginLibraryItem "/Library/Visual Studio.lbi" --> <strong>Microsoft Visual Studio 2013</strong><!-- #EndLibraryItem -->. Your code needs to compile without errors or warnings and run correctly. Code that does not compile will receive zero points. Code that crashes  will receive zero points.</p>
+<p>Your code must run in <!-- #BeginLibraryItem "/Library/Visual Studio.lbi" --> <strong>Microsoft Visual Studio 2013</strong><!-- #EndLibraryItem --> with both the <strong>Start Without Debugging (Ctrl+F5)</strong> and <strong>Start Debugging (F5)</strong> commands. Your <span style="font-weight: bold">asgmt0<strong>3</strong>.exe</span> must also run when invoked directly from the command line. 	</p>
+<p>I use <a href="http://www.python.org" target="_blank">Python</a> scripts to grade your code. Because of this,<em> it is very important that you not make any changes to file names or the folder structure in your project</em>. Your project should have <em>all the same names in all the same places</em> as the starter project you downloaded from <!-- #BeginLibraryItem "/Library/Desire2Learn.lbi" --> Desire2Learn<!-- #EndLibraryItem -->. If you change any of this, my scripts will crash. Your work will not be graded, you will have to resubmit a corrected version of your work, and you will lose points.</p>
+<p>My scripts produce a log file containing your code, compiler warnings and errors (if any), your code's output, and some statistics that are useful to me. I then personally go through that log file to produce your grade. In other words, the script doesn't generate your grade, it just makes it more convenient for <em>me</em> to generate your grade.</p>
+<h2 class="header">To Submit This Assignment</h2>
+<p>First, &ldquo;clean&rdquo; your project by doing the following: </p>
+<ul>
+  <li>execute <strong>Clean Solution</strong> in the <strong>Build</strong> menu </li>
+  <li>remove anything that would stop your code from running to completion when run with the &lsquo;Start Debugging&rsquo; command
+    <ul>
+      <li>delete all breakpoints</li>
+      <li>remove any calls to <span class="code">system(&quot;pause&quot;)</span> from your code</li>
+      <li>remove anything else, like calls to <span class="code">cin.get()</span>, that would stop your code</li>
+    </ul>
+  </li>
+  <li>close <!-- #BeginLibraryItem "/Library/Visual Studio.lbi" --> <strong>Microsoft Visual Studio 2013</strong><!-- #EndLibraryItem -->, and then delete the following items from your project folder:
+<ul>
+<li>the <strong>.sdf</strong> file</li>
+          <li>the <strong>Debug</strong> folder</li>
+          <li>the <strong>ipch</strong> folder (if it&rsquo;s present)</li>
+        </ul>
+  </li>
+</ul>
+<p>After cleaning your project, compress it into <strong>asgmt03.zip</strong>. Make sure you have your Zip application set to <em>preserve the  folder structure</em> of your project, and make sure that your .zip file <em>will extract into a single folder</em>, the way that the .zip files from this course do.  <br />
+    <br />
+  Doing these things will ensure that your .zip file is as small as possible,  which will make both your upload and my download quicker. <br />
+  <br />
+Submit the .zip file containing your cleaned project to <!-- #BeginLibraryItem "/Library/Desire2Learn.lbi" --> Desire2Learn<!-- #EndLibraryItem -->. Please be sure the source file  prints your name, assignment description and number, as requested. </p>
+<ul>
+  <li>Be  certain to check that you completed the upload successfully. After you click  the Upload File button, you must also click the <strong>SUBMIT ASSIGNMENT </strong>button. This  is very easy to forget. You have been warned. I would recommend entering an  email address so you can be notified that the uploaded was completed  successfully.</li>
+  <li>You  may upload as many versions as you wish prior to the due date. I will only see  and grade the last one. You won&rsquo;t be able to upload assignments after the due date.</li>
+</ul>
+<p>&nbsp;</p>
+</body>
+<!-- InstanceEnd --></html>
