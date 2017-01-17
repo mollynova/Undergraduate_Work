@@ -1,51 +1,63 @@
--- Lab02 Readme
+-- Lab06 Readme
 
-For this lab we are going to write a small program.  The purpose is to gain
-experience using text editor.  It is assumed that you have already done all
-previous lab exercises. 
+For this lab we are going to get more practice writing and compiling programs
+on linux. Just like last time,this time we will have a program with more than
+one file. It is assumed that you have already done all previous lab exercises.
 
 -- Setup
 
 Use the instructions in the previous lessions to create a new directory called
-"lab02" in your "labs" directory.  After you have created the directory make
-sure that you "go into" the "lab02" directory (Hint: "go into x" means "change
+"lab06" in your "labs" directory.  After you have created the directory make
+sure that you "go into" the "lab06" directory (Hint: "go into x" means "change
 your current directory to x").
 
--- Learn an editor
+-- Simple classes
 
-In order to create and edit files we need to use a file editor.  There are two
-very common file editors in Linux: emacs, vi.  Most linux users are very
-passionate about their text editor of choice and can give you a long
-discussion about why their text editor of choice is FAR superior to the other
-one.  My preference is emacs but you are free to use whichever editor you want
-to use.  If you already know how to use something other than emacs or vi you
-are free to use that too.
+Your program for this lab exercise should be fairly simple.  It will be a
+program that accepts a list of student records and then prints out some
+statistics.  Each student record consists of a last name, major, and GPA.
+Student records should be represented using a Student class.  The main program
+should have two phases.  
 
-If you don't yet know how to use a linux text editor then you should take a
-few minutes to go through one of these online tutorials.
+Phase 1: Data entry -- ask the user how many students there will be and then
+prompt the user to enter the three data items for each student.  All of the
+student data should be stored in an array.  There is no max limit to the
+number of students.  The program should not hardcord the different available
+majors.  
 
-emacs:
-http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/
+Phase 2: Statistics -- After all student records are entered the program
+should print a report as follows:
 
-vi: 
-http://www.unix-manuals.com/tutorials/vi/vi-in-10-1.html
+Total number of students: x
+Average GPA for all students: y
+Number of different majors: z
+Average GPA per major:
+  major 1: a
+  major 2: b
+  major 3: c
 
-You are free to choose either editor.  Keep in mind that I don't know vi so I
-won't be able to assist you with using that editor.
+In the report replace each of the values x, y, z, a, b, c with actual values.
+Also note that the "Average GPA per major" will have a separate row for each
+major (no matter how many there are).
 
--- Write a program
+-- Getting started
 
-After you have setup your lab directory and learned an editor it's time to
-write a simple program.  Use your text editor to create a C++ program that
-prints all the integers from 1 to 100.  After creating the program be sure to
-compile it and run it to make sure that it works.
+Before getting too involved in writing the code you should start by creating
+the three files you need (main.cpp, student.h, student.cpp) and make sure
+you can compile all of them.  
+
+You may need to review the instructions from previous labs if you don't
+remember how to compile and run your program.
 
 -- Lab completion
 
-To show that you have completed the lab you need to send me email with your
-c++ file. I will review the program to make sure that it works. Once I have
-received the program and confirmed it is correct I will mark you down as
-having sucessfully completed the lab.
+To show that you have completed the lab you need to turn in the assignment
+using the "turnin" program.  The command to turn in your file is
+"~mike.noel/bin/turnin cs260 filename".  Replace "filename" with the actual
+name of your file.  This command only generates output if there is an error.
+You need to turn in each file separately.
+
+
 
 
 
