@@ -1,0 +1,106 @@
+-- Lab05 Readme
+
+For this lab we are going to get more practice writing and compiling programs
+on linux. This time we will have a program with more than one file. It is
+assumed that you have already done all previous lab exercises.
+
+-- Setup
+
+Use the instructions in the previous lessions to create a new directory called
+"lab05" in your "labs" directory.  After you have created the directory make
+sure that you "go into" the "lab05" directory (Hint: "go into x" means "change
+your current directory to x").
+
+-- Doing math functions
+
+Your program for this lab exercise will create a program that can do various
+math functions (GCD, LCM, average, factorial, etc.).  You will have a main.cpp
+file that contains a simple menu-based main loop.  You will have a separate
+functions.cpp file that contains implementations for the different math
+functions that you implement.
+
+-- Getting started
+
+Before getting too involved in writing the code you should start by creating
+the three files you need (main.cpp, functions.h, functions.cpp) and make sure
+you can compile all of them.  Start with a main.cpp file.  This file was
+included in the lab setup files (I saved you a bunch of typing).  Use your
+text editor to review the main.cpp and make sure you understand how it works.
+
+Next you need to create a functions.cpp file.  This file will contain all of
+the functions that you implement.  We'll start with a relatively simple
+function: average.  This function sums the two input values and divides by 2.
+
+The average function will look like this:
+
+void doAverage(int x,int y) {
+
+  int sum = x+y;
+  int average = sum/2;
+
+  cout << "Average of " << x << " and " << y << " is " << average << endl;
+}
+
+Create functions.cpp and type that function in.  You will also need to include
+iostream and the appropriate using statement in functions.cpp.
+
+After you have created functions.cpp you can compile both main.cpp and
+functions.cpp together using the following command:
+
+g++ -o mathfun main.cpp functions.cpp
+
+If you run this program you will see that it doesn't do anything different.
+At this point main.cpp doesn't know about functions.cpp.  We have to do two
+more things.  First, you need to create a header file, functions.h, that holds
+the function prototype for your average function.  Create functions.h and
+include in it:
+
+void doAverage(int x,int y);
+
+Now, main.cpp needs to have access to this.  Add the following line in
+main.cpp:
+
+#include "functions.h"
+
+This would go near the other include statement.
+
+Now you can compile main and functions as shown above.  The last thing you
+need to do is to uncomment the call to doAverage() in main.  Once you do that
+your program will work to calculate the average of two numbers.
+
+After you get that working you should add the GCD function.  The Greatest
+Common Denominator is easy to calculate using the Euclid method.  The basic
+idea is quite simple.  Given two numbers, replace the largest by the
+difference between the largest and the smallest.  Keep going until the two
+numbers are the same or one of them gets to 0.  At this point you have the
+GCD.  Here is an example for the numbers 252 and 105:
+
+252 105 -- 252 is largest so replace it with 252-105
+147 105 -- 147 is largest so replace it with 147-105
+ 42 105 -- 105 is largest so replace it with 105-42
+ 42  63 -- 63 is largest so replace it with 63-42
+ 42  21 -- 42 is largest so replace it with 42-21
+ 21  21 -- they are the same. 21 is the GCD
+
+Write the doGCD() function in your functions.cpp file using this algorithm.
+Then enable it in main.cpp and check your results.
+
+Once you have GCD then LCM is also easy.  The LCM (least common multiple) of
+two numbers, a, b, is just the GCD of the product of a and b.  So you can
+reuse your GCD algorithm in LCM.
+
+Finally, if you finish GCD and LCM add the factorial function.  And if you are
+very ambitious you can add more functions (whatever you can think of).
+
+-- Lab completion
+
+To show that you have completed the lab you need to turn in the assignment
+using the "turnin" program.  The command to turn in your file is
+"~mike.noel/bin/turnin cs260 filename".  Replace "filename" with the actual
+name of your file.  This command only generates output if there is an error.
+You need to turn in each file separately.
+
+
+
+
+

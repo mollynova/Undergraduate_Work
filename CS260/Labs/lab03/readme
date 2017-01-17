@@ -1,0 +1,56 @@
+-- Lab03 Readme
+
+For this lab we are going to get more practice writing and compiling programs
+on linux. The purpose is to gain experience using a text editor and the
+compiler.  It is assumed that you have already done all previous lab
+exercises.
+
+-- Setup
+
+Use the instructions in the previous lessions to create a new directory called
+"lab03" in your "labs" directory.  After you have created the directory make
+sure that you "go into" the "lab03" directory (Hint: "go into x" means "change
+your current directory to x").
+
+-- Write a program
+
+After you have setup your lab directory it's time to write a program.  You
+will write a program that simulates an investment account balance over the
+course of a few years.  This investment account has a fixed annual return rate
+and the interest is compounding yearly.  That means that you add the amount
+gained due to interest each year to the existing balance.
+
+Your program will start by reading in the starting balance, interest rate, and
+number of years.  They it will print a table showing the balance each
+year. All inputs should be integers.
+
+Here is an example run of the program:
+
+Enter starting balance: 5000
+Enter interest rate: 5
+Enter number of years: 10
+
+Year 1 $5250.0
+Year 2 $5512.5
+Year 3 $5788.125
+Year 4 $6077.53125
+Year 5 $6381.4078125
+Year 6 $6700.478203125
+Year 7 $7035.50211328125
+Year 8 $7387.277218945313
+Year 9 $7756.641079892578
+Year 10 $8144.473133887207
+
+Your program should generate the same output (in the same format) as this example.
+
+-- Lab completion
+
+To show that you have completed the lab you need to turn in the assignment
+using the "turnin" program.  The command to turn in your file is
+"~mike.noel/bin/turnin cs260 filename".  Replace "filename" with the actual
+name of your file.  This command only generates output if there is an error.  
+
+
+
+
+

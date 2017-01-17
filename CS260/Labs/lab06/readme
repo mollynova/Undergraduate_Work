@@ -1,0 +1,63 @@
+-- Lab06 Readme
+
+For this lab we are going to get more practice writing and compiling programs
+on linux. Just like last time,this time we will have a program with more than
+one file. It is assumed that you have already done all previous lab exercises.
+
+-- Setup
+
+Use the instructions in the previous lessions to create a new directory called
+"lab06" in your "labs" directory.  After you have created the directory make
+sure that you "go into" the "lab06" directory (Hint: "go into x" means "change
+your current directory to x").
+
+-- Simple classes
+
+Your program for this lab exercise should be fairly simple.  It will be a
+program that accepts a list of student records and then prints out some
+statistics.  Each student record consists of a last name, major, and GPA.
+Student records should be represented using a Student class.  The main program
+should have two phases.  
+
+Phase 1: Data entry -- ask the user how many students there will be and then
+prompt the user to enter the three data items for each student.  All of the
+student data should be stored in an array.  There is no max limit to the
+number of students.  The program should not hardcord the different available
+majors.  
+
+Phase 2: Statistics -- After all student records are entered the program
+should print a report as follows:
+
+Total number of students: x
+Average GPA for all students: y
+Number of different majors: z
+Average GPA per major:
+  major 1: a
+  major 2: b
+  major 3: c
+
+In the report replace each of the values x, y, z, a, b, c with actual values.
+Also note that the "Average GPA per major" will have a separate row for each
+major (no matter how many there are).
+
+-- Getting started
+
+Before getting too involved in writing the code you should start by creating
+the three files you need (main.cpp, student.h, student.cpp) and make sure
+you can compile all of them.  
+
+You may need to review the instructions from previous labs if you don't
+remember how to compile and run your program.
+
+-- Lab completion
+
+To show that you have completed the lab you need to turn in the assignment
+using the "turnin" program.  The command to turn in your file is
+"~mike.noel/bin/turnin cs260 filename".  Replace "filename" with the actual
+name of your file.  This command only generates output if there is an error.
+You need to turn in each file separately.
+
+
+
+
+
