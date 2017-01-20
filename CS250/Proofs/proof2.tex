@@ -1,0 +1,407 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{booktabs} % for "\midrule" macro
+
+
+\author{Molly Novash}
+\title{%
+\Huge Proof the Second for CS250  \\
+\normalsize Powered by \LaTeXe}
+
+\begin{document}
+\sloppy
+\maketitle
+\bigskip
+
+Proof that $NAND$ is functionally complete in two parts  \ldots
+
+\section{Proof: The Operator Set $\{$AND, OR, NOT$\}$ \\ is functionally complete.} 
+
+Below is a table of the 16 logical operators, labelled numerically \ldots \\
+
+Our aim is to progress through these operators in numerical order, and prove that 
+each of them can be obtained by using nought but the operator set  $\{$AND, OR, NOT$\}$.
+
+\bigskip
+\begin{center}
+\begin{tabular}{cccccccccccccccc}
+1  & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16\\
+\midrule
+T & T & T & T & T & T & T & T & F & F & F & F & F & F & F & F\\
+T & T & T & T & F & F & F & F & T & T & T & T & F & F & F & F\\
+T & T & F & F & T & T & F & F & T & T & F & F & T & T & F & F\\
+T & F & T & F & T & F & T & F & T & F & T & F & T & F & T & F\\
+\end{tabular}
+\end{center}
+
+\bigskip
+For each of the 16 logical operators, a truth table has been constructed for the purposes of this proof. In bold in the top-most row of each table is the logical expression from which each logical operator can be derived. The tables are as follows \ldots \\
+
+\bigskip
+
+\hspace*{-\parindent}%
+\begin{minipage}{0.65\textwidth}
+%\begin{enumerate}
+
+\textbf{1.}\textit{ TTTT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{p\lor \lnot p}$\\
+\midrule
+T & T & T\\
+T & F & T\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(1)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+
+\textbf{3.}\textit{ TTFT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{p\lor \lnot q}$\\
+\midrule
+T & T & T\\
+T & F & T\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(3)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{5.}\textit{ TFTT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot p \lor q}$\\
+\midrule
+T & T & T\\
+T & F & F\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(5)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{7.}\textit{ TFFT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot }$($\bm{ p \lor q}$)$\bm{\lor}$($\bm{p\land q}$)$$\\
+\midrule
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(7)}}}$\\
+\end{tabular}
+\end{center}
+
+%\end{enumerate}
+\end{minipage}%
+\begin{minipage}{0.3\textwidth}
+%\begin{enumerate}
+
+\textbf{2.}\textit{ TTTF}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{p\lor q}$\\
+\midrule
+T & T & T\\
+T & F & T\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{(2)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{4.}\textit{ TTFF}\\
+\begin{center}
+\begin{tabular}{cc}
+$\bm{p}$ & $q$\\
+\midrule
+T & T\\
+T & F\\
+F & T\\
+$\smash{\underbrace{\text{F}}_{\textbf{(4)}}}$ & F\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{6.}\textit{ TFTF}\\
+\begin{center}
+\begin{tabular}{cc}
+$p$ & $\bm{q}$\\
+\midrule
+T & T\\
+T & F\\
+F & T\\
+F & $\smash{\underbrace{\text{F}}_{\textbf{(6)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{8.}\textit{ TFFF}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{p\land q}$\\
+\midrule
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{(8)}}}$\\
+\end{tabular}
+\end{center}
+
+%\end{enumerate}
+\end{minipage}
+
+
+% new page starts from here
+\newpage
+\hspace*{-\parindent}%
+\begin{minipage}{.65\textwidth}
+
+\bigskip
+\textbf{9.}\textit{ FTTT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot }$($\bm{p \land q}$)$$\\
+\midrule
+T & T & F\\
+T & F & T\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(9)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{11.}\textit{ FTFT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot q}$\\
+\midrule
+T & T & F\\
+T & F & T\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(11)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{13.}\textit{ FFTT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot p}$\\
+\midrule
+T & T & F\\
+T & F & F\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(13)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{15.}\textit{ FFFT}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot }$($\bm{p \lor q}$)$$\\
+\midrule
+T & T & F\\
+T & F & F\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{(15)}}}$\\
+\end{tabular}
+\end{center}
+
+\end{minipage}
+\begin{minipage}{.3\textwidth}
+
+\bigskip
+\textbf{10.}\textit{ FTTF}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot }$($\bm{ p \land q}$)$\bm{\land}$($\bm{p\lor q}$)$$\\
+\midrule
+T & T & F\\
+T & F & T\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{(10)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{12.}\textit{ FTFF}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{p \land \lnot q}$\\
+\midrule
+T & T & F\\
+T & F & T\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{(12)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{14.}\textit{ FFTF}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot p \land q}$\\
+\midrule
+T & T & F\\
+T & F & F\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{(14)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\textbf{16.}\textit{ FFFF}\\
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{p \land \lnot p}$\\
+\midrule
+T & T & F\\
+T & F & F\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{(16)}}}$\\
+\end{tabular}
+\end{center}
+
+\end{minipage}
+
+\bigskip
+\bigskip
+\bigskip
+\hspace*{-\parindent}%
+Conclusion: The Operator Set $\{$AND, OR, NOT$\}$ is functionally complete.  $\square$
+
+\newpage
+\section{Proof: $NAND$ is functionally complete.}
+
+The previous section provides proof that the Operator Set $\{$AND, OR, NOT$\}$ is functionally complete. Therefore, if it is possible to duplicate the effects of all three elements in that Operator Set using only the operator $NAND$, $NAND$ is also functionally complete. 
+
+\subsection{Proof: The $NAND$-only equivalent of $AND$}
+\begin{proof}
+\bigskip
+
+Below is the truth table for the $AND$ operator, juxtaposed with a truth table which generates the same binary values using only the $NAND$ operator.
+
+\bigskip
+\subsubsection{NAND-only version of P AND Q}
+\bigskip
+\begin{center}
+\begin{tabular}{cccc}
+$p$ & $q$ & $p \hspace{.1cm}| \hspace{.1cm}q$ & $(p \hspace{.1cm}|\hspace{.1cm}q) \hspace{.1cm} | \hspace{.1cm}(p \hspace{.1cm} | \hspace{.1cm} q)$\\
+\midrule
+T & T & F & T\\
+T & F & T & F\\
+F & T & T & F\\
+F & F & T & $\smash{\underbrace{\text{F}}_{\textbf{($ \hspace{.1cm} |\hspace{.1cm} of \land$)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\subsubsection{Q AND P}
+\bigskip
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{q \land p}$\\
+\midrule
+T & T & T\\
+T & F & F\\
+F & T & F\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{($\land$)}}}$\\
+\end{tabular}
+\end{center}
+\bigskip
+\bigskip
+Conclusion: $AND$ can be constructed from $NAND$.
+\end{proof}
+
+\subsection{Proof: The $NAND$-only equivalent of $OR$}
+\begin{proof}
+\bigskip
+
+Below is the truth table for the $OR$ operator, juxtaposed with a truth table which generates the same binary values using only the $NAND$ operator.
+
+\bigskip
+\subsubsection{NAND-only version of P OR Q}
+\bigskip
+\begin{center}
+\begin{tabular}{cccccc}
+$p$ & $q$ & $p \hspace{.1cm}|\hspace{.1cm} q$ & $q \hspace{.1cm}|\hspace{.1cm} (p \hspace{.1cm} | \hspace{.1cm} q) $ & $p \hspace{.1cm} | \hspace{.1cm}(q \hspace{.1cm}|\hspace{.1cm} (p \hspace{.1cm} | \hspace{.1cm} q))$ & $(q \hspace{.1cm}|\hspace{.1cm} (p \hspace{.1cm} | \hspace{.1cm} q)) \hspace{.1cm} | \hspace{.1cm}(p \hspace{.1cm} | \hspace{.1cm} (q \hspace{.1cm}|\hspace{.1cm} (p \hspace{.1cm} | \hspace{.1cm} q)))$\\
+\midrule
+T & T & F & T & F & T\\
+T & F & T & T & F & T\\
+F & T & T & F & T & T\\
+F & F & T & T & T & $\smash{\underbrace{\text{F}}_{\textbf{($ \hspace{.1cm} |\hspace{.1cm} of \lor$)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\subsubsection{OR P}
+\bigskip
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot p}$\\
+\midrule
+T & T & T\\
+T & F & T\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{F}}_{\textbf{($\lor$)}}}$\\
+\end{tabular}
+\end{center}
+\bigskip
+\bigskip
+Conclusion: $OR$ can be constructed from $NAND$.
+\end{proof}
+
+
+\subsection{Proof: The $NAND$-only equivalent of $NOT$}
+\begin{proof}
+\bigskip
+
+Below is the truth table for the $NOT$ operator, juxtaposed with a truth table which generates the same binary values using only the $NAND$ operator.
+
+\bigskip
+\subsubsection{NAND-only version of NOT P}
+\bigskip
+\begin{center}
+\begin{tabular}{ccccc}
+$p$ & $q$ & $p \hspace{.1cm}|\hspace{.1cm} q$ & $q \hspace{.1cm}|\hspace{.1cm} (p \hspace{.1cm} | \hspace{.1cm} q) $ & $p \hspace{.1cm} | \hspace{.1cm} ( q \hspace{.1cm} | \hspace{.1cm} (p \hspace{.1cm} | \hspace{.1cm} q))$\\
+\midrule
+T & T & F & T & F\\
+T & F & T & T & F\\
+F & T & T & F & T\\
+F & F & T & T & $\smash{\underbrace{\text{T}}_{\textbf{($ \hspace{.1cm} |\hspace{.1cm} of \lnot$)}}}$\\
+\end{tabular}
+\end{center}
+
+\bigskip
+\subsubsection{NOT P}
+\bigskip
+\begin{center}
+\begin{tabular}{ccc}
+$p$ & $q$ & $\bm{\lnot p}$\\
+\midrule
+T & T & F\\
+T & F & F\\
+F & T & T\\
+F & F & $\smash{\underbrace{\text{T}}_{\textbf{($\lnot$)}}}$\\
+\end{tabular}
+\end{center}
+\bigskip
+\bigskip
+Conclusion: $NOT$ can be constructed from $NAND$.
+\end{proof}
+
+\bigskip
+\hspace*{-\parindent}%
+Final Conclusion: $NAND$ is functionally complete. $\square$
+
+\end{document}

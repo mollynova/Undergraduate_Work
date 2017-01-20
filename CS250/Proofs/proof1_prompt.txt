@@ -1,0 +1,12 @@
+The following proof will be in four parts.
+Please use the correct mathematical vocabulary
+and/or diagrams where appropriate.
+
+Consider the relation f over the real numbers,
+
+f: R -> R,  where f(x) = x^3.
+
+1. Prove or disprove: f is a function.
+2. Prove or disprove: f is injective (1-1).
+3. Prove or disprove: f is surjective (onto).
+4. Prove or disprove: f is bijective (both 1-1 and onto).
