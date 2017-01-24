@@ -1,0 +1,191 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{booktabs} % for "\midrule" macro
+
+
+\author{Molly Novash}
+\title{%
+\Huge Proof the Third for CS250  \\
+\normalsize Powered by \LaTeXe}
+
+\begin{document}
+\sloppy
+\maketitle
+\bigskip
+
+Proofs in two parts  \ldots
+
+\section{Proof [2.3.42]: The following premises can be used to prove $t$} 
+\bigskip
+
+\begin{minipage}{0.2\textwidth}
+% Number the premises / steps
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+\end{minipage}%
+\begin{minipage}{.3\textwidth}
+% List the premises / conversions
+$p \lor q$
+
+$q \longrightarrow r$
+
+$p \land s \longrightarrow t$
+
+$\lnot r$
+
+$\lnot q \longrightarrow u \land s$
+
+$\lnot q$
+
+$p$
+
+$u \land s$
+
+$s$
+
+$p \land s$
+
+$t$
+
+\end{minipage}%%
+\begin{minipage}{.35\textwidth}
+% List the relevant premises / Rule used for conversion
+\vspace{5\baselineskip}
+4 , 2 \hspace{.3cm} $\textit{Modus Tollens}$
+
+6 , 1 \hspace{.3cm} $\textit{Elimination}$
+
+6 , 5 \hspace{.3cm} $\textit{Modus Ponens}$
+
+8     \hspace{.9cm} $\textit{Specialization}$
+
+7 , 9 \hspace{.3cm} $\textit{Conjunction}$
+
+10 , 3 \hspace{.1cm} $\textit{Modus Ponens}$
+
+\end{minipage}%
+
+\bigskip
+\bigskip
+$\textbf{Conclusion: $\therefore t$ \hspace{8cm} $\square$}$
+
+\bigskip
+\section{Proof [2.3.44]: The following premises can be used to prove $u \land w$}
+\bigskip
+\begin{minipage}{0.2\textwidth}
+% List step numbers
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+\end{minipage}%
+\begin{minipage}{.3\textwidth}
+% List premises / conversions
+$p \longrightarrow q$
+
+$r \lor s$
+
+$\lnot s \longrightarrow \lnot t$
+
+$\lnot q \lor s$
+
+$\lnot s$
+
+$\lnot p \land r \longrightarrow u$
+
+$w \lor t$
+
+$\lnot t$
+
+$r$
+
+$\lnot q$
+
+$\lnot p$
+
+$\lnot p \land r$
+
+$u$
+
+$w$
+
+$u \land w$
+
+\end{minipage}%
+\begin{minipage}{.35\textwidth}
+% List the relevant premises / Rule used for conversion
+\vspace{7\baselineskip}
+5 , 3 \hspace{.5cm} $\textit{Modus Ponens}$
+
+5 , 2 \hspace{.5cm} $\textit{Elimination}$
+
+4 , 5 \hspace{.5cm} $\textit{Elimination}$
+
+1 , 10 \hspace{.3cm} $\textit{Modus Tollens}$
+
+9 , 11 \hspace{.3cm} $\textit{Conjunction}$
+
+12 , 6 \hspace{.3cm} $\textit{Modus Ponens}$
+
+7 , 8 \hspace{.5cm} $\textit{Elimination}$
+
+13 , 14 \hspace{.1cm} $\textit{Conjunction}$
+
+\end{minipage}%
+
+\bigskip
+\bigskip
+$\textbf{Conclusion: $\therefore u \land w$ \hspace{8cm} $\square$}$
+
+\end{document}
