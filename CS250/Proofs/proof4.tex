@@ -1,0 +1,149 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{booktabs} % for "\midrule" macro
+
+
+\author{Molly Novash}
+\title{%
+\Huge Proof the Fourth for CS250  \\
+\normalsize Powered by \LaTeXe}
+
+\begin{document}
+\sloppy
+\maketitle
+\bigskip
+
+In this document, 3 statements will be rewritten as quantified logical statements, using the universal and existential quantifiers, and defining predicates as needed. The negations of these statements will be provided. Finally, one of these statements will be conclusively proven or disproven \ldots
+
+\section{Problem 4.1.57 in 2 parts \ldots} 
+\bigskip
+$\textit{If $m$ and $n$ are in $\mathbb{Z}^+$ and $mn$ is a perfect square, $m$ and $n$ are perfect}$
+$\textit{ squares.}$
+
+\subsection{4.1.57 written as a quantified logical statement.}
+\bigskip
+
+
+For all values of $m$ and $n$, where $m$ and $n$ are positive integers, if the square root of the product of $m$ and $n$ is also a positive integer, then $mn$ is a perfect square. If this is true, then the square root of $m$ and the square root of $n$ are also perfect squares. \\
+
+Note: This is a false statement.
+
+\begin{equation}
+\forall (m,n) \in \mathbb{Z}^+ ((mn = k^2, k \in \mathbb{Z}^+) \rightarrow (\sqrt{m}, \sqrt{n} \in \mathbb{Z}^+))
+\end{equation}
+
+\bigskip
+\subsection{The negation of expression (1)}
+\bigskip
+
+To negate expression (1), we follow the negation procedure for an implication. First, the $\forall$ (universal) quantifier is replaced with the $\exists$ (existential) quantifier. Second, the $\rightarrow$ (implication) operator is swapped for the $\land$ (and) operator. Finally, the predicate of the initial implication remains the same, but the conclusion is negated. \\
+
+The negation reads: There are two positive integers, $m$ and $n$, whose product is a perfect square, but the individual square roots of $m$ and $n$ are not positive integers. \\
+
+Note: This is a true statement.
+
+\begin{equation}
+\exists (m,n) \in \mathbb{Z}^+ ((mn = k^2, k \in \mathbb{Z}^+) \land (\sqrt{m}, \sqrt{n} \notin \mathbb{Z}^+ ))
+\end{equation}
+
+
+\section{Problem 4.1.58 in 2 parts \ldots}
+\bigskip
+$\textit{The difference of the squares of any two consecutive integers is odd.}$
+
+\subsection{4.1.58 written as a quantified logical statement.}
+\bigskip
+
+For all values of $x$ and $y$, where $x$ and $y$ are positive integers, if the absolute value of $x - y$ equals 1 (i.e. the integers are consecutive), then the difference of their squares equals some positive integer $k$, such that $k \% 2$ equals 1 (i.e. $k$ is odd). \\
+
+Note: This is a true statement.\\
+
+\begin{equation}
+\forall (x,y) \in \mathbb{Z}^+((|x-y| = 1) \rightarrow (|x^2 - y^2| = k, k \in \mathbb{Z}^+ \hspace{0.2cm}| \hspace{0.2cm}k \% 2 = 1))
+\end{equation}
+
+\bigskip
+\subsection{The negation of the solution to section 2.1}
+\bigskip
+
+To negate expression (3), we again follow the negation procedure for an implication. First, the $\forall$ (universal) quantifier is replaced with the $\exists$ (existential) quantifier. Second, the $\rightarrow$ (implication) operator is swapped for the $\land$ (and) operator. Finally, the predicate of the initial implication remains the same, but the conclusion is negated. Note that the second part of the original conclusion has been omitted, because if $k$ is not an integer, $k$ \% 2 cannot be 1, and thus it is an irrelevance. \\
+
+The negation reads: There are two positive integers, $x$ and $y$, that are consecutive but of which the difference of their squares is not a positive integer.\\
+
+Note: This is a false statement.
+
+\begin{equation}
+\exists (x,y) \in \mathbb{Z}^+((|x-y| = 1) \land (|x^2 - y^2| = k, k \notin \mathbb{Z}^+))
+\end{equation}
+
+\section{Problem 4.1.59 in 2 parts \ldots}
+\bigskip
+$\textit{For all nonnegative real numbers $a$ and $b$, $\sqrt{ab}$ = $\sqrt{a}\sqrt{b}$}$
+
+\subsection{4.1.59 written as a quantified logical statement.}
+\bigskip
+
+For all values of $a$ and $b$ where $a$ and $b$ are positive real numbers, the square root of $a*b$ is equivalent to the product of the square root of $a$ and the square root of $b$.\\
+
+Note: This is a true statement.\\
+
+\begin{equation}
+\forall (a,b) \in \mathbb{R}^+ (\sqrt{ab} = \sqrt{a}\sqrt{b})
+\end{equation}
+
+\bigskip
+\subsection{The negation of the solution to section 3.1}
+\bigskip
+
+To negate expression (5), we simply swap the $\forall$ (universal) quantifier for the $\exists$ (existential) quantifier, and then negate the premise.\\
+
+Note: This is a false statement.
+
+\begin{equation}
+\exists (a,b) \in \mathbb{R}^+ (\sqrt{ab} \neq \sqrt{a}\sqrt{b})
+\end{equation}
+
+\section{Proof: Problem 4.1.57 [Section 1]}
+\bigskip
+$\textit{Reiteration of Problem 4.1.57: If $m$ and $n$ are in $\mathbb{Z}^+$ and $mn$ is a}$\\
+$\textit{perfect square, $m$ and $n$ are perfect squares.}$ \\
+
+A statement can be proven to be false by proving its $\textit{negation}$. The premise of this proof is that the original statement is false. Thereby, proving the veracity the negated statement in section 1.2 proves the falsity of the original statement as well. \\
+
+To begin, let us define the term "perfect square." A "perfect square" is a positive integer that is the square of an integer; it is the product of some integer with itself. In my own words, it is an integer for which, if you had that many square building blocks, you could arrange them side by side on the table in such a way that they would form a larger square. \\
+
+These numbers are... \\
+
+\begin{equation}
+{n\in \mathbb{Z}^+ (1^2 = \textbf{1}, \hspace{0.2cm}2^2 = 
+\textbf{4}, \hspace{0.2cm}3^2 = \textbf{9},\hspace{0.2cm} ..., \hspace{0.2cm} n^2 = i, i \in \mathbb{Z}^+)}
+\end{equation}
+
+Consider: 
+
+\begin{equation}
+m = 8, \hspace{0.4cm} n = 2 
+\end{equation}
+
+\begin{equation}
+8 * 2 = 16 \; \hspace{0.2cm}; \hspace{0.2cm}\sqrt{16} = 4 \; \hspace{0.2cm}; \hspace{0.2cm}4 \in \mathbb{Z}^+
+\end{equation}
+\bigskip
+
+We can see that the product of $m$ and $n$ is a perfect square. Our negated original statement claims that we can pick two integers whose product is a perfect square, but for which the individual square roots are not integers. \\
+
+The square root of 8 is approximately 2.83, and the square root of 2 is approximately 1.41, neither of which are integers. \\
+
+Thus by proving the veracity of the negation of the original statement, we have proven that the original statement is false. \\
+
+Conclusion: If the product of two positive integers is a perfect square, the roots of those two numbers are not necessarily positive integers. \\
+
+$\square$
+
+\end{document}

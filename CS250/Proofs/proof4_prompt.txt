@@ -1,0 +1,7 @@
+This week, you'll be translating some English statements into quantified logical statements and proving one.
+
+First, write exercises 4.1.57-59 in your textbook as quantified logical statements, using the universal and existential quantifiers, and defining predicates as needed. 
+Second, write the negations of each of these statements in the same way. 
+Finally, choose one of these statements to prove. If it is true, prove it, and if it is false, prove its negation. Your proof need not use symbols, but can be a simple explanation in plain English. 
+
+You may find that reading section 4.1 is helpful, but I think that this can be done without doing so. Good luck!
