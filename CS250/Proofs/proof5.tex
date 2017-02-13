@@ -1,0 +1,112 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{booktabs} % for "\midrule" macro
+
+
+\author{Molly Novash}
+\title{%
+\Huge Proof the Fifth for CS250  \\
+\normalsize Powered by \LaTeXe}
+
+\begin{document}
+\sloppy
+\maketitle
+\bigskip
+
+In this document, we will prove that if the sum of the digits of a number is divisible by 3, then the number is divisible by 3.
+
+\begin{proof}
+\bigskip
+\par
+Suppose $n$ is some natural number, and $m$ is a natural number representing the sum of all of the individual digits in $n$. Then if 3 divides m, 3 also divides n \ldots\\
+
+\begin{equation}
+\forall n \in \mathbb{N}((3 \hspace{.1cm} | \hspace{.1cm} m , \hspace{.1cm} m \in \mathbb{N}) \rightarrow (3 \hspace{.1cm} | \hspace{.1cm} n , \hspace{.1cm} n \in \mathbb{N}))
+\end{equation}
+
+\bigskip
+\par
+
+Let $k$ be a positive integer representing the highest place value of $n$. \\
+
+\noindent\textit{Note that $k$ can be decrimented to 0, not to 1, because $10^0$ multiplied by the last digit of $n$ gives the last digit of $n$, as defined in the base 10 number system.}\\
+
+Let $i$ be a positive integer designating the current place value. 
+
+Let $d$ be a positive integer representing the value of the digit at place value $k - i$. \\
+
+Let us represent $n$ in the following way \ldots \\
+
+\noindent\textit{Please note that this general notation is meant to illustrate that $k$ can be any positive integer. $k - i$ is not necessarily larger than 2.}
+
+\begin{equation}
+n = \sum_{i = 0}^{k} n_{i} = (10^{k - i} d_{k - i} + ... + 10^2 d_{2} + 10^1 d_{1} + d_{0}) , \hspace{.1cm}\textbf{n} \in \mathbb{N}, \hspace{.1cm}\textbf{k},\textbf{d},\textbf{i} \in \mathbb{Z^+}
+\end{equation}
+
+\bigskip
+Let us represent $m$ in the following way, where the previous definitions of $k$, $i$, and $d$ hold \ldots\\
+
+\noindent\textit{Note again that this general notation is meant to illustrate that $k$ can be any positive integer. $k - i$ is not necessarily larger than 2.}
+
+\begin{equation}
+m = \sum_{i = 0}^{k} m_{i} = (d_{k - i} + ... + d_{2} + d_{1} + d_{0}) , \hspace{.1cm} \textbf{m} \in \mathbb{N}, \hspace{.1cm} \textbf{k},\textbf{d},\textbf{i} \in \mathbb{Z^+}
+\end{equation}
+\bigskip
+
+By algebra, we can translate the definition of $n$ into the following \ldots
+
+\begin{equation}
+n = \sum_{i = 0}^{k} n_{i} = d_{k - i}((10^{k - i} - 1) + 1) + ... + d_{2}((10^{2} - 1) + 1) + d_{1}((10^{1} - 1) + 1) + d_{0}
+\end{equation}
+\bigskip
+
+Note that for any value of $k - i$, $10^{k - i}$ is a 1 with $k - i$ trailing zeroes, by the definition of powers of 10. Therefore, $(10^{k - i} - 1)$ will be the integer that is 9 repeating $k - i$ times, regardless of what values $k$ and $i$ are within their domain. \\
+
+By algebra, we know that this number, for any $k$ and $i$, will always be divisible by 3. Since 9 is divisible by 3, any multiple of 9 is also divisible by 3. Please see the preceding statements for proof of this statement.\\
+
+\textit{Lemma:}\\
+
+\begin{proof}
+Since 3 divides 9, 3 also divides any multiple of 9. \\
+
+\begin{equation}
+9k = 3(3k) , \hspace{.1cm} k \in \mathbb{Z}
+\end{equation}
+\bigskip
+
+Let $l = 3k$ by substitution. $l$ is an integer by the closure of multiplication over $\mathbb{Z}$.
+
+\begin{equation}
+3(3k) = 3l \hspace{.1cm}, \hspace{.1cm} l \in \mathbb{Z}
+\end{equation}
+\bigskip
+
+Therefore, if 3 divides 9, 3 also divides any multiple of 9.\\
+\end{proof}
+
+\bigskip
+Now, back to our main proof \ldots \\
+
+We have now proven that the first expression inside each set of parentheses in our definition of $n$ is divisible by 3. These expressions can therefore be removed from consideration, since they are all multiples of 3. Let us group them together in our summation notation so that we can visualize what summed expressions we have left to evaluate after we have removed them \ldots
+
+\begin{equation}
+n = \sum_{i = 0}^{k} n_{i} = \mathbf{(}d_{k - i}(10^{k - i} - 1) + ... + d_{1}(10^{1} - 1)\mathbf{)} + \mathbf{(}d_{k - i}(1) + ... + d_{1}(1) + d_{0}(1)\mathbf{)}
+\end{equation}
+\bigskip
+
+Now, we can temporarily remove the first block of numbers from $n$ to show that 3 divides the number that we have left. 
+
+\begin{equation}
+n = \sum_{i = 0}^{k} n_{i} = d_{k - i} + ... + d_{2} + d_{1} + d_{0}
+\end{equation}
+\bigskip 
+
+This is our exact definition of $m$. $\therefore$ if 3 divides $m$, 3 also divides $n$. 
+\end{proof}
+\end{document}

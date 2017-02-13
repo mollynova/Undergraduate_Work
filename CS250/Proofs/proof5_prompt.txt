@@ -1,0 +1,10 @@
+This week, please prove a nifty divisibility trick from grade school:
+
+If the sum of the digits of a number is divisible by 3, 
+then than number is divisible by 3.
+
+Prior to your proof, please write the statement in a formal mathematical style.
+In your proof, please justify each step as we've been doing in class and HW.
+If you need some context to figure out how to prove this, please reference the
+final exercises in section 4.3 of your book. 
+Good luck!!!
