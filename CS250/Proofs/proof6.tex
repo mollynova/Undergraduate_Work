@@ -1,0 +1,160 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{booktabs} % for "\midrule" macro
+
+
+\author{Molly Novash}
+\title{%
+\Huge Proof the Sixth for CS250  \\
+\normalsize Powered by \LaTeXe}
+
+\begin{document}
+\sloppy
+\maketitle
+\bigskip
+
+This document will provide proof of the following statement: \\
+
+
+\textit{For any integer $n$, $n$ to the fourth power modified by 16 is equal to one.}
+\bigskip
+
+\begin{equation}
+\forall n \in \mathbb{Z}((n = (2k+1), k \in \mathbb{Z}) \rightarrow ((n^4) \hspace{.1cm} \% \hspace{.1cm} 16 = 1))
+\end{equation}
+\bigskip
+\begin{proof}
+
+\begin{equation}
+(n^4) \hspace{.1cm} \% \hspace{.1cm} 16 = 1
+\end{equation}
+\bigskip
+
+Therefore, by algebra \ldots \\
+\begin{equation}
+(n^4 \hspace{.1cm} - 1) \hspace{.1cm} \% \hspace{.1cm} 16 = 0
+\end{equation}
+\bigskip
+
+We need to prove that $(n^4 \hspace{.1cm} - 1)$ is a multiple of 16. \\
+
+By factoring, we can produce the following equivalent expression \ldots \\
+\begin{equation}
+n^4 \hspace{.1cm} - 1 = (n^2 \hspace{.1cm} - 1)(n^2 \hspace{.1cm} + 1)
+\end{equation}
+\bigskip
+
+In order to complete our proof efficiently, it is logical to choose substitutive expressions that will easily factor into 16. Since we will be squaring values of $n$, we would like to select a substitutive variable with a preceding 4, the square root of 16. \\
+
+Example 4.4.6 on page 185 of the text "Discrete Mathematics with Applications, ed 6" by Susanna S. Epp, entitled "Representations of Integers Modulo 4," provides us with the following axiom: \\
+
+Any integer can be written in one of the following four forms for some integer q \ldots
+
+\begin{equation}
+n = 4q \hspace{.2cm} or \hspace{.2cm} n = 4q + 1 \hspace{.2cm} or \hspace{.2cm} n = 4q + 2 \hspace{.2cm} or \hspace{.2cm} n = 4q + 3
+\end{equation}
+\bigskip
+
+We know that $n$ is an odd integer. The first and third expressions, above, represent even integers, so we will use the second and fourth expressions as substitutes for $n$. \\
+
+By expression (4), we can see that $(n^4 \hspace{.1cm} - 1)$ is equal to $(n^2 \hspace{.1cm} - 1)(n^2 \hspace{.1cm} + 1)$. We need to prove that $(n^4 \hspace{.1cm} - 1 )\hspace{.1cm} \% \hspace{.1cm} 16 = 0$. \\
+
+If we can pull one factor of 16 evenly out of each $(n^2 \hspace{.1cm} - 1)$ and $(n^2 \hspace{.1cm} + 1)$ such that they multiply together to equal 16 times some integer expression, then we will have proven that $n^4 \hspace{.1cm} \%  \hspace{.1cm} 16 = 1$ for any odd integer $n$. \\
+
+\textbf{\textit{Case 1:}} 4q + 1 \\
+
+\textit{$n^2$ - 1:}
+\begin{equation}
+n^2  \hspace{.1cm} - 1 = [(4q + 1)(4q + 1)]  \hspace{.1cm} - 1 
+\end{equation}
+\begin{equation}
+= 16q^2  \hspace{.1cm} + 8q \\
+\end{equation}
+\begin{equation}
+\hspace{.1cm} = 8(2q^2  \hspace{.1cm} + q)
+\end{equation}
+
+\textit{$n^2$ + 1:}
+\begin{equation}
+n^2 \hspace{.1cm} + 1 = [(4q + 1)(4q + 1)] + 1
+\end{equation}
+\begin{equation}
+= 16q^2 \hspace{.1cm} + 8q + 2
+\end{equation}
+\begin{equation}
+\hspace{.2cm}= 2(8q^2 \hspace{.1cm} + 4q + 1)
+\end{equation}
+\bigskip
+
+For case $4q \hspace{.1cm} + 1$ \ldots
+\begin{equation}
+(n^2 \hspace{.1cm} -1)(n^2 \hspace{.1cm} + 1) \hspace{.1cm} \% \hspace{.1cm} 16 = 0
+\end{equation}
+\begin{equation}
+\hspace{.2cm}\equiv [8(2q^2 \hspace{.1cm} + q)][2(8q^2 \hspace{.1cm} + 4q + 1)] \hspace{.1cm} \% \hspace{.1cm} 16 = 0
+\end{equation}
+\begin{equation}
+\hspace{.2cm}\equiv 16[(2q^2 \hspace{.1cm} + q)(8q^2 \hspace{.1cm} + 4q + 1)] \hspace{.3cm} \% \hspace{.1cm} 16 = 0
+\end{equation}
+\bigskip
+
+Since the entire inner expression is a multiple of 2, let $r$ be an integer that equals $[(2q^2 \hspace{.1cm} + q)(8q^2 \hspace{.1cm} + 4q + 1)]$ by substitution. Thus \ldots \\
+
+\begin{equation}
+\equiv 16r \hspace{.1cm} \% \hspace{.1cm} 16 = 0, r \in \mathbb{Z}
+\end{equation}
+\bigskip
+
+\textbf{\textit{Case 1:}} 4q + 3 \\
+
+\textit{$n^2$ - 1:}
+\begin{equation}
+n^2  \hspace{.1cm} - 1 = [(4q + 3)(4q + 3)]  \hspace{.1cm} - 1 
+\end{equation}
+\begin{equation}
+\hspace{.1cm}= 16q^2  \hspace{.1cm} + 24q + 8 \\
+\end{equation}
+\begin{equation}
+\hspace{.2cm} = 8(2q^2  \hspace{.1cm} + 3q + 1)
+\end{equation}
+
+\textit{$n^2$ + 1:}
+\begin{equation}
+n^2 \hspace{.1cm} + 1 = [(4q + 3)(4q + 3)] + 1
+\end{equation}
+\begin{equation}
+\hspace{.3cm}= 16q^2 \hspace{.1cm} + 24q + 10
+\end{equation}
+\begin{equation}
+\hspace{.4cm}= 2(8q^2 \hspace{.1cm} + 12q + 5)
+\end{equation}
+\bigskip
+
+For case $4q \hspace{.1cm} + 3$ \ldots
+\begin{equation}
+(n^2 \hspace{.1cm} -1)(n^2 \hspace{.1cm} + 1) \hspace{.1cm} \% \hspace{.1cm} 16 = 0
+\end{equation}
+\begin{equation}
+\hspace{.2cm}\equiv [8(2q^2 \hspace{.1cm} + 3q + 1)][2(8q^2 \hspace{.1cm} + 12q + 5)] \hspace{.1cm} \% \hspace{.1cm} 16 = 0
+\end{equation}
+\begin{equation}
+\equiv 16[(2q^2 \hspace{.1cm} + 3q + 1)(8q^2 \hspace{.1cm} + 12q + 5)] \hspace{.1cm} \% \hspace{.1cm} 16 = 0
+\end{equation}
+\bigskip
+
+Since the entire inner expression is a multiple of 2, let $t$ be an integer that equals $[(2q^2 \hspace{.1cm} + 3q + 1)(8q^2 \hspace{.1cm} + 12q + 5)]$ by substitution. Thus \ldots \\
+
+\begin{equation}
+\equiv 16t \hspace{.1cm} \% \hspace{.1cm} 16 = 0, t \in \mathbb{Z}
+\end{equation}
+\bigskip
+
+Thus, we have proven that for any odd integer $n$, $(n^4) \hspace{.1cm} \% \hspace{.1cm} 16 = 1$.
+\end{proof}
+\end{document}

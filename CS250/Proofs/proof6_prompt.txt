@@ -1,0 +1,5 @@
+This week, the proof comes from section 4.4 of your book. Please read this section carefully before beginning the proof!
+
+(n^4) % 16 = 1 whenever n is an odd integer.
+
+As usual, please use the appropriate quantifiers and mathematical symbols in your proof, as well as detailed English explanations!
