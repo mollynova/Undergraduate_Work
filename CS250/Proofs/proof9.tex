@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{indentfirst}
+\usepackage{booktabs} % for "\midrule" macro
+
+
+\author{Molly Novash}
+\title{%
+\Huge Proof the Ninth for CS250  \\
+\normalsize Powered by \LaTeXe}
+
+\begin{document}
+\sloppy
+\maketitle
+\bigskip
+
+Consider the following situation \ldots \\
+
+On a circular race track, a particular but arbitrary number of gas cans are positioned according to a particular but arbitrary sequence. The sum total of the gas in the cans is sufficient to get the car around the track precisely one time. \\
+
+Let the property $P(n)$ be the following statement: For any number of cans of gas positioned around the track, and for any identity of the sequence by which they are arranged, there exists a particular starting point on the track which will enable the car to traverse the track precisely one time. \\
+
+\begin{proof}
+\bigskip
+Let $n$ $\in$ $\mathbb{N}$ be the number of cans of gas. Let the total amount of gas in all of the cans be $1g$ where $g$ is some arbitrary unit of volume, to represent $1$ cycle around the track. Let $1d$ represent the total distance around the track, where $d$ is some artitrary unit of length. Note that the fewest number of possible cans is $1$, and that the total amount of gas in all of the cans must be $1g$. \\
+
+\textit{Base case: $n = 1$:} \\
+
+Our base case is when there is only $1$ can of gas by the track. Since the total amount of gas in all of the cans must be $1g$, and since there is only one can, there must be $1g$ of gas in that one can- enough to get us all the way around the track. Therefore, clearly if we place the car at that can of gas, it will be able to make one full revolution around the track.\\
+
+\textit{Inductive step:} \\
+
+Suppose that there is always a point at which we can place the car such that the car is able to traverse the track when there are $n$ cans. We must show that there is also such a starting position when there are $n + 1$ cans. \\
+
+Consider the following for $P(n + 1)$: At least one of the cans of gas positioned around the track has to have enough gas in it to get to the next can. We know this because we know that when there are $k$ cans, the car is able to traverse the entire track, if it has a starting point that gets it all the way around the track, it must have a starting point that gets it to the next can. If we add one more can, no matter where we add it on the track, we are doing one of two things: We \textit{aren't} adding that next can between the first and second can, in which case adding the can has no affect on this assertion, or we \textit{are} adding that next can between the original first and second cans. We know Can 1 can get us to Can 2, so if we add a can between them, we are shortening the distance from Can 1 to the next can, and it will definitely be able to get there. \\
+
+Now, for $P(n + 1)$, where there are $(n + 1)$ cans of gas around the track, imagine that we take all of the gas from can 2 and we pour it into can one, and then we get rid of can 2. Now we have $n$ cans again, with the same total amount of gas, which we know has a starting position that works. \\
+
+Therefore, we can conclude that if $n$ cans $P(n)$ can be placed around a circular track, with some amount of gas totaling $1g$ and some distance apart totaling $1d$, such that there is a starting position that would enable a car to get all the way around the track, then the same holds true for $n + 1$ cans. 
+
+
+\end{proof}
+\end{document}
